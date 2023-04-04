@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	 float x[10], y[10], v,val=0,a;
+	 int i,j,n;
+
+	 /* Input Section */
+	 printf("Enter number of data: ");
+	 scanf("%d", &n);
+
+	 printf("Enter data of x :\n");
+	 for(i=0;i<n;i++)
+	 {
+		  scanf("%f", &x[i]);
+	 }
+
+	 printf("Enter data of y :\n");
+	 for(i=0;i<n;i++)
+	 {
+		  scanf("%f", &y[i]);
+	 }
+
+
+	 printf("Enter interpolation point: ");
+	 scanf("%f", &a);
+	 /* Implementing Lagrange Interpolation */
+	 for(i=0;i<n;i++)
+	 {
+		 v=y[i];
+		  for(j=0;j<n;j++)
+		  {
+			   if(j!=i)
+			   {
+			    	v = v* (a - x[j])/(x[i] - x[j]);
+			   }
+		  }
+		  val = val+ v;
+	 }
+	 printf("Result is: %f",val);
+	 getch();
+}
